@@ -15,13 +15,14 @@ class Solution:
         open_chars = ['(', '{', '[']
         closing_chars = [')', '}', ']']
 
+        opening_chars = set(open_chars)
         matching_chars = dict(zip(closing_chars, open_chars))
 
         char_open = []
         
         for char in s:
             # Always accept open chars
-            if char in open_chars: 
+            if char in opening_chars: 
                 char_open.append(char)
                 continue
 

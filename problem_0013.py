@@ -30,24 +30,14 @@ class Solution:
 
         Ex: replace IV with IIII
         """
+        special = ['IV', 'IX', 'XL', 'XC', 'CD', 'CM']
+        special_value = [4, 9, 40, 90, 400, 900]
+        special_values = dict(zip(special, special_value))
 
-        special_values = {}
-        special_values['IV'] = 4
-        special_values['IX'] = 9
-        special_values['XL'] = 40
-        special_values['XC'] = 90
-        special_values['CD'] = 400
-        special_values['CM'] = 900
+        literal = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
+        literal_value = [1, 5, 10, 50, 100, 500, 1000]
+        literal_values = dict(zip(literal, literal_value))
 
-        values = {}
-        values['I'] = 1
-        values['V'] = 5
-        values['X'] = 10
-        values['L'] = 50
-        values['C'] = 100
-        values['D'] = 500
-        values['M'] = 1000
-        
         count = 0
         # count and remove the special values
         for key, val in special_values.items():
@@ -57,7 +47,7 @@ class Solution:
 
         # count the regular values that are left
         for roman in s:
-            count += values[roman]
+            count += literal_values[roman]
 
         return count
 

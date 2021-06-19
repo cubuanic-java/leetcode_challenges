@@ -24,6 +24,11 @@ class Solution:
         """
         My approach is to search and remove the special cases first
         Afterwards count the remaining letters normally.
+
+        A different but similar approach would be to seach for the special
+        Cases first and replace them with regular roman symbols. 
+
+        Ex: replace IV with IIII
         """
 
         special_values = {}

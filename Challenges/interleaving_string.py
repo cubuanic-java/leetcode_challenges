@@ -11,10 +11,11 @@ class Solution:
     
     @lru_cache()
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
-        # early cutoff
-        if self.first_run and (len(s1) + len(s2) != len(s3)):
+        # early cutoff for length mismatch
+        if self.first_run:
             self.first_run = False
-            return False
+            if len(s1) + len(s2) != len(s3):
+                return False
 
         # we ran out of characters withtout any issue, return True
         if not len(s1) and not len(s2) and not len(s3): return True

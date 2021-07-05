@@ -1,5 +1,5 @@
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
+    def missingNumber(self, nums: list[int]) -> int:
         length = len(nums)
         # Gauss's method forms a general formula for the sum of the first n integers
         # 1/2 * n * (n + 1)

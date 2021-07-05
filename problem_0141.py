@@ -36,7 +36,6 @@ class Solution:
     """
     However, it is more pythonic to assume there 
     is a valid entry and use a try / except block
-    
     """
     def hasCycle(self, head: ListNode) -> bool:
 
@@ -49,6 +48,9 @@ class Solution:
                 fast = fast.next.next
                 
                 if slow == fast:
+                    # proving the cycle
                     return True
         except:
+            # .next was None and calling 
+            # .next on None threw the exception
             return False

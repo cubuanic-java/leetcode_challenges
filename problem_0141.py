@@ -16,7 +16,7 @@ class Solution:
         """
         
         slow = fast = head
-        
+
         # Exit the search when:
         # 1. fast is None due to either
         # - Empty input
@@ -32,3 +32,23 @@ class Solution:
         
         # If fast found an end to the list there is no loop
         return False
+
+    """
+    However, it is more pythonic to assume there 
+    is a valid entry and use a try / except block
+    
+    """
+    def hasCycle(self, head: ListNode) -> bool:
+
+        # initialize the pointers
+        slow = fast = head 
+
+        try:
+            while True:
+                slow = slow.next
+                fast = fast.next.next
+                
+                if slow == fast:
+                    return True
+        except:
+            return False

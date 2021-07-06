@@ -18,51 +18,51 @@ class Solution:
             But we have to remember what it used to point to so it is possible
             To use that in next iterations
 
-
-        example: 1 -> 2
+        example: (1, 2) -> (2, None)
 
         Iteration 1:
             prev = None
-            head = 1
+            head = (1, 2)
             next = None
 
             1. Find out next
-            next = 2
+            next = (2, None)
             
             2. Make the head point backwards
             head.next = prev (None)
+            head = (1, None)
 
             3.  swap previous with head
                 Note: previous becomes the head!
-            prev = head {val: 1, next = None}
+            prev = head (1, None)
 
-            4. Set the next to the next node (2)
-            so: head.val = 2, head.next = None
+            4. Set the head equal to the next node (2)
+            head = (2, None)
 
         Iteration 2:
-            prev = (1) {val: 1, next: None}
-            head = (2) {val: 2, next: None}
+            prev = (1, None)
+            head = (2, None)
 
             1. find out next
             Next = None
 
             2. Make the head point backwards
-            head = (2) {val: 2, next: 1}
+            head.next = prev
+            head = (2, 1)
 
             3. swap places with previous
-            prev = (2)
+            prev = head = (2, 1)
 
             4. Make head the next_node
-            head = None
+            head = next (None)
 
-        This terminates the loop with the current data structure
+        This terminates the loop in the next iteration
+        with the current data structure
 
-        prev = (2) {val = 2, next = 1}
-               (1) {val = 1, next = None}
+        prev = (2, 1) -> (1, None)
 
         return prev as this has become the next head
         """
-        
         prev = None
         next_node = None
 

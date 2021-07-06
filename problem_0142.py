@@ -16,17 +16,17 @@ class Solution:
         4. If a cycle exists reset the slow pointer
            Move slow and fast at the same speed till they meet
         """
-        slow = fast = head # 1. initialize the pointers
-        while fast and fast.next: # See 2 and 3
+        slow = fast = head          # 1. initialize the pointers
+        while fast and fast.next:   # See 2 and 3
             slow = slow.next
             fast = fast.next.next
             
-            if slow == fast: # 2. Cycle detected!            
-                slow = head  # 4. Reset slow and find the start of the cycle
+            if slow == fast:        # 2. Cycle detected!            
+                slow = head         # 4. Reset slow and find the start of the cycle
                 while slow != fast: 
                     slow = slow.next
                     fast = fast.next                              
                 return slow
         
-        return None # While loop found no cycle
+        return None  # While loop found no cycle
         

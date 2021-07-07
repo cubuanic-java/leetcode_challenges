@@ -8,18 +8,20 @@ class ListNode:
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         """
-        Challenge: To remove the n-th element from the end of the list
+        ## Challenge: To remove the n-th element from the end of the list
 
-        Solution: Using the fast and slow pointer pattern.
+
+        ## Solution: Using the fast and slow pointer pattern.
 
         - The fast pointer will start with a gap of n away from slow.
         
-        - Both pointers will move at the same speed till the fast pointer reaches 
-            the end of the list (fast.next is None)
+        - Both pointers will move at the same speed till the fast pointer 
+            reaches the end of the list (fast.next is None)
         
         - Skip the nth element by connecting the slow.next to slow.next.next
 
-        Example:
+
+        ## Example:
             remove n = 3 from a list
 
         n:  6  5  4  3  2  1
@@ -52,7 +54,7 @@ class Solution:
             return the head of the adjusted list
         
 
-        Edge Case: n equals length of list, 
+        ## Edge Case: n equals length of list, 
             Solution: skip the first element and return head.next
 
         Example: l: [1], n = 1

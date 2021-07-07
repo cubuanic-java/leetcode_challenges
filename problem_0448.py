@@ -1,5 +1,10 @@
 class Solution:
     def findDisappearedNumbers(self, nums: list[int]) -> list[int]:
+        """
+        See problem 442!
+        
+        
+        """
         missing = []
         
         for n in nums:

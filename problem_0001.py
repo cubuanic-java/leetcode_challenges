@@ -1,43 +1,35 @@
-test_list = [2, 5, 7, 9, 3, 1]
-print(test_list)
-
-dict_numbers = {}
-for index, number in enumerate(test_list):
-
-    if number not in dict_numbers:
-        dict_numbers[number] = [index]
-    else:
-        dict_numbers[number].append(index)
-
-def solution(target):
-
-    for number in dict_numbers:
-
-        # NB, key = the number, the val is the index!
-
-        compliment = target - number
-
-        if compliment in dict_numbers:
-            # if compliment equals target, it needs to exist twice!
-            if (compliment == number):
-                if len(dict_numbers[compliment]) == 1:
-                    pass
-                else:
-                    return dict_numbers[number]
-            else:
-                index_1 = dict_numbers[number][0]
-                index_2 = dict_numbers[compliment][0]
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        """
+        Find a solution by going over all the numbers in the list
+        For each number check if the compliment is in the remainder of the list
+        
+        Optimizations:
+        
+        First try: using a set, made it faster.
+        
+        Second try: using a dict instead of a list
+        
+        Third optimization, make it a one pass while creating the dict
+        If the compliment is already in the dictionary we can return
+        this is because there is only one solution
+        
+        """
+        # create dictionary
+        stored_numbers = {}
+        for index, number in enumerate(nums):
             
-            return [index_1, index_2]
-
-sol = solution(6)
-print(sol)
-
-# def twoSum(self, nums, target):
-#         seen = {}
-#         for i, v in enumerate(nums):
-#             remaining = target - v
-#             if remaining in seen:
-#                 return [seen[remaining], i]
-#             seen[v] = i
-#         return []
+            compliment = target - number
+            
+            # Two possibilities
+            # 1.The compliment is already in the dict
+            #   Return the answer
+            # 2. Compliment is not in dict, store the number
+            
+            if compliment in stored_numbers:
+                return [stored_numbers[compliment], index]
+            
+            stored_numbers[number] = index
+            
+        # this is an error!
+        return -1

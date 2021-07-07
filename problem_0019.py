@@ -77,10 +77,9 @@ class Solution:
             while fast.next:
                 slow = slow.next
                 fast = fast.next
+            # Step 4. remove the n-th node
+            slow.next = slow.next.next
+            return head
         except:
             # Edge case: n is list length, skip the first element
             return head.next
-
-        # Step 4. remove the n-th node
-        slow.next = slow.next.next
-        return head

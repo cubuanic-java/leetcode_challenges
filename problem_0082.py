@@ -35,36 +35,36 @@ class Solution:
 
     """
     def deleteDuplicates(self, head: ListNode) -> ListNode:
+        # Edge cases: empty list and single length list
+        # No need to perform any searching here
+        if not head: return None
+        if not head.next: return head
         
+        start = ListNode(0, head)
+        prev = start
+        
+        while head:
 
-        # Step 1. Find an unique value to start with
-        start = None
-
-        # Idea, can we use a previous pointer instead of a counter?
-        prev = head
-        val = head.val
-
-        while head and not start:
-            
-            print(f'values processed: {head.val}, start = {start}')
-
-            if val != head.val:
-                print(f'{val} is not {head.val}')
-                if prev.next != head:
-                    print(f'this previous value of {val} was not unique')
-                    print('reset the search')
-                    prev = head
-                    val = head.val
-                else:
-                    print(f'the previous value {val} seems to have been unique')
-                    start = prev
-
-                # edge case, unique value at the end
-                if not start and not head.next:
-                    print(f'we encounter the first unique value at the end!')
-                    start = head
-
+            # Step 1.   
+            # Detect if this is the beginning of a sublist
+            # with duplicates that needs to be deleted
+            # Or a unique value
+            if head.next and head.val == head.next.val:
+                # Find the end of this sublist
+                while head.next and head.val == head.next.val:
+                    head = head.next
+                # skipped all duplicates
+                prev.next = head.next
+                
+            # If this was a unique value move the
+            # prev pointer so it gets added to the list
+            else:
+                prev = prev.next 
+                
+            # Step 2. 
+            # After finding a duplicate list that
+            # got deleted, or a unique value that got added
+            # move forward in the list
             head = head.next
-        
-        # Lets see our start value
-        return start
+            
+        return start.next

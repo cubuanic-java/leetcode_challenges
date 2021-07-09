@@ -6,23 +6,37 @@ class ListNode:
 
 class Solution:
     """
-    See problem 82 for a more difficult version
 
-    This is a fast and slow pointer problem.
+    ## Challenge:
 
+        Given the head of a sorted linked list, 
+        delete all duplicates such that each element appears only once. 
+        Return the linked list sorted as well.
 
-    Step 1. if current node exists and the next node exists 
-            check if the value is the same
+        Example:
+            Input: head = [1,1,2,3,3]
+            Output: [1,2,3]
 
-    Step 2. - Option 1: same value 
-              -> skip the node with head.next.next (the fast pointer)
-            - Option 2: different value
-              -> move to the next node (the slow pointer)
-        
-    Step 3. Store a pointer to the head since we modify this in place
+    ## Solution:
 
-            NB: While this can be done with start = head in this particular problem
-            It is more common to place a node before the head and return start.next
+        (See problem 82 for a more difficult version)
+
+        This is a fast and slow pointer problem.
+
+        Step 0. Store a pointer to the head since we modify this in place
+
+        NB: While this can be done with start = head in this particular problem
+        It is more common to place a node before the head and return start.next
+
+        Step 1. if current node exists and the next node exists 
+                check if the value is the same
+
+        Step 2. - Option 1: same value 
+                -> skip the node with head.next.next (the fast pointer)
+                - Option 2: different value
+                -> move to the next node (the slow pointer)
+            
+
 
     """
     def deleteDuplicates(self, head: ListNode) -> ListNode:
@@ -34,4 +48,4 @@ class Solution:
             else:
                 head = head.next
 
-        return start.next   
+        return start.next

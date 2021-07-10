@@ -4,43 +4,83 @@ class ListNode:
          self.val = val
          self.next = next
 class Solution:
-    """
-    Fast and Slow pointers / Floyd's algorithm
+    """ 876. Middle of the Linked List
+
+    ## Challenge
+
+        Given a non-empty, singly linked list with head node head, 
+        return a middle node of linked list.
+
+        If there are two middle nodes, return the second middle node.
+
+
+    ## Solution
+
+    Pattern: fast and slow pointers
     
-    A single linked list is like a racetrack
+    Step 1.
+        Initialize fast and slow pointing at the head
     
-    The faster pointer moving twice the speed
-    will terminate while the slow pointer is still in the middle
-    
-    While solving this the order in which we move the pointers is important.
-    But why does the try except work in this order for even sized arrays??
+    Step 2.
+        While fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        Alternative with using try and except:
+        The fast = fast.next.next is the first line executed since
+        it acts like the check on the while condition
+        
+        try:
+            while True:
+                fast = fast.next.next  
+                slow = slow.next
+        except:
+            return slow
+
+
+        NB: odd: fast.next will be None first
+            even: fast will be None first
+
 
     Example odd array
 
+    Step 1. Initilizing the pointers:
+
+     #   
     [1, 2, 3, 4, 5]
+     *
+
+    Step 2. Move while fast and fast.next
 
     Iteration 1:
     
-        #
+           #
     [1, 2, 3, 4, 5]
         *
     
     Iteration 2:
     
-                #
+                 #
     [1, 2, 3, 4, 5]
-        *
+           *
+
+        fast.next is None now, iteration will stop.
+
     
-    Iteration 3:
-                    #
-    [1, 2, 3, 4, 5]
-            *
-    
-    # is None now, next iteration will fail with * in the correct position
-    
+    Even array:
+
+    Step 1. Initialization:
+
+     #
+    [1, 2, 3, 4]
+     *  
+
+
+    Step 2. while fast and fast.next
+
     Iteration 1:
     
-        #
+           #
     [1, 2, 3, 4]
         *
         
@@ -48,15 +88,11 @@ class Solution:
     
                 #
     [1, 2, 3, 4]
-        *
+           *
         
-    Iteration 3:
-    
-                _ # the fast pointer is None before the slow.next line?
-    [1, 2, 3, 4]
-        * 
-    
-    Why does the try still execute the slow.next line?
+        fast is none now, iteration will stop.
+
+     
     """
 
     # Initial solution
@@ -76,7 +112,7 @@ class Solution:
         
         try:
             while True:
-                fast = fast.next.next
+                fast = fast.next.next  # This needs to fail first
                 slow = slow.next
         except:
             return slow

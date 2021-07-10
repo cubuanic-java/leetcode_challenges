@@ -90,9 +90,7 @@ class Solution:
     [1, 2, 3, 4]
            *
         
-        fast is none now, iteration will stop.
-
-     
+        fast is none now, iteration will stop. 
     """
 
     # Initial solution

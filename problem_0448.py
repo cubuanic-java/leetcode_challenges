@@ -1,4 +1,13 @@
+"""
+448. Find All Numbers Disappeared in an Array
+
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+
+Classification: Array
+"""
+
 class Solution:
+
     def findDisappearedNumbers(self, nums: list[int]) -> list[int]:
         """
         See problem 442!
@@ -13,6 +22,7 @@ class Solution:
                 nums[n_abs-1] *= -1
         
         return [i+1 for i, n in enumerate(nums) if n>0]
+
 
     def findDisappearedNumbers(self, nums: list[int]) -> list[int]:
         """

@@ -23,3 +23,6 @@ https://seanprashad.com/leetcode-patterns/
 
 - 0021: https://leetcode.com/problems/merge-two-sorted-lists/
 
+## Dynamic Programming
+
+- 0070: https://leetcode.com/problems/climbing-stairs/

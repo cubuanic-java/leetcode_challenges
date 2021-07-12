@@ -1,12 +1,22 @@
 """
+# 852. Peak Index in a Mountain Array
+
+- https://leetcode.com/problems/peak-index-in-a-mountain-array/
+- Classification: Binary Search
+
+## Challenge:
+
 Let's call an array arr a mountain if the following properties hold:
 
 arr.length >= 3
 There exists some i with 0 < i < arr.length - 1 such that:
 arr[0] < arr[1] < ... arr[i-1] < arr[i]
 arr[i] > arr[i+1] > ... > arr[arr.length - 1]
-Given an integer array arr that is guaranteed to be a mountain,
-return any i such that arr[0] < arr[1] < ... arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1].
+Given an integer array arr that is guaranteed to be a mountain, 
+return any i such that:
+    arr[0] < arr[1] < ... arr[i - 1] < arr[i]
+    arr[i] > arr[i + 1] > ... > arr[arr.length - 1].
+
 
 Example 1:
 Input: arr = [0,1,0]
@@ -34,11 +44,14 @@ Constraints:
 3 <= arr.length <= 104
 0 <= arr[i] <= 106
 arr is guaranteed to be a mountain array.
-"""
 
-"""
-Modified binary search where the pivot determines if the max value is on the left or the right.
 
+## Solution
+
+See: 704, 744
+
+Modified binary search where the pivot determines 
+if the max value is on the left or the right.
 
 
 Right Side Mountain Examples
@@ -69,12 +82,6 @@ while left_pointer != right_pointer
         # going downhill, set right_pointer to the bigger value
         right_pointer = pivot
 
-
-Left side search
-
-[12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-[11, 12, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-
 """
 
 class Solution:
@@ -83,7 +90,6 @@ class Solution:
         right_pointer = len(arr) - 1
 
         while left_pointer != right_pointer:
-
             pivot = (left_pointer + right_pointer) // 2
             
             if arr[pivot] < arr[pivot+1]:
@@ -94,6 +100,7 @@ class Solution:
                 right_pointer = pivot
             
         return left_pointer
+
 
 if __name__ == "__main__":
     s = Solution()

@@ -1,3 +1,40 @@
+"""
+# 141. Linked List Cycle
+
+- https://leetcode.com/problems/linked-list-cycle/
+- Classification: Fast & Slow pointers, Floyd's Algorithm
+
+
+## Challenge
+
+Given head, the head of a linked list, 
+determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node 
+in the list that can be reached again by continuously 
+following the next pointer. 
+
+Internally, pos is used to denote the index of the node that
+tail's next pointer is connected to. 
+Note that pos is not passed as a parameter.
+
+Return true if there is a cycle in the linked list. 
+Otherwise, return false.
+
+
+## Solution
+
+Floyd's algorithm.
+
+Using fast and slow pointers.
+
+If fast and slow pointers meet there is proof of a loop.
+If the fast pointer runs out there is no cicle
+
+This can be implemented with a while fast and fast.next
+or a try except
+"""
+
 # Definition for singly-linked list.
 class ListNode:
      def __init__(self, x):
@@ -5,52 +42,27 @@ class ListNode:
          self.next = None
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
-        """
-        Floyd's algorithm.
-        
-        Using fast and slow pointers.
-        
-        If fast and slow pointers meet there is proof of a loop.
-        If the fast pointer finds a None we exit our loop
-        """
-        
+
+    # Solution 1
+    def hasCycle(self, head: ListNode) -> bool:       
         slow = fast = head
 
-        # Exit the search when:
-        # 1. fast is None due to either
-        # - Empty input
-        # - fast.next.next was None
-        # 2. fast.next is None 
         while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
-            
-            # Floyd's algorithm: if they meet there is a loop
-            if fast == slow:
-                return True
+            if fast == slow: return True  # pointers met: a loop detected
         
-        # If fast found an end to the list there is no loop
-        return False
+        return False  # fast pointer reached the end: no loop
 
-    """
-    However, it is more pythonic to assume there 
-    is a valid entry and use a try / except block
-    """
+
+    #Solution 1, variant with try except
     def hasCycle(self, head: ListNode) -> bool:
-
-        # initialize the pointers
         slow = fast = head 
 
         try:
             while True:
-                slow = slow.next
                 fast = fast.next.next
-                
-                if slow == fast:
-                    # proving the cycle
-                    return True
-        except:
-            # .next was None and calling 
-            # .next on None threw the exception
+                slow = slow.next
+                if slow == fast: return True
+        except:  # .next was None
             return False

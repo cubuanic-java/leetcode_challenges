@@ -1,4 +1,12 @@
-""" PROBLEM DESCRIPTION
+"""
+# 704 Binary Search
+
+- https://leetcode.com/problems/binary-search/
+- Classification: Binary Search
+
+
+## Challenge
+
 Given an array of integers nums which is sorted in ascending order, 
 and an integer target, write a function to search target in nums. 
 If target exists, then return its index. Otherwise, return -1.
@@ -17,11 +25,12 @@ Constraints:
 -104 < nums[i], target < 104
 All the integers in nums are unique.
 nums is sorted in ascending order.
-"""
 
-""" BINARY SEARCH 
 
-pattern:
+## Solution:
+
+Binary Search
+
 
 while left_pointer <= right_pointer:
     1. calc pivot pointer: (left + right) // 2
@@ -30,8 +39,6 @@ while left_pointer <= right_pointer:
     3. if pivot value == target : return found
     4. if pivot value > target: right_pointer = pivot_pointer -1
     5. else: left_pointer = pivot_pointer + 1
-
-Explanation why this end condition works:
 
 Explanation why this end condition works:
 
@@ -86,12 +93,13 @@ class Solution:
         return -1
 
 
-n1 = [-1,0,3,5,9,12]
-t1 = 9
-n2 = [-1,0,3,5,9]
-t2 = 2
-
 if __name__ == "__main__":
+
+    n1 = [-1,0,3,5,9,12]
+    t1 = 9
+    n2 = [-1,0,3,5,9]
+    t2 = 2
+
     s = Solution()
     print(s.search(n1, t1))
     print(s.search(n2, t2))

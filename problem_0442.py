@@ -1,4 +1,11 @@
-""" Problem 422 - Medium
+""" 
+# 422. Find All Duplicates in an Array
+
+- https://leetcode.com/problems/find-all-duplicates-in-an-array/
+- Classification: Arrays
+
+
+## Challenge
 
 Given an integer array nums of length n 
 where all the integers of nums are in the range [1, n]
@@ -28,35 +35,40 @@ n == nums.length
 1 <= nums[i] <= n
 Each element in nums appears once or twice.
 
+
+## Solution
+
+Due to the constrainst of this problem
+any value-1 can be used as an index pointer.
+
+This way highest number in the array will never 
+exceed the length of the array index.
+
+Example of a possible array showcasing the index -1 case:
+
+index:  0  1  2  3
+array: [1, 2, 4, 4]
+
+Solution: loop over the array
+    - use the absolute value -1 as an index
+    - multiply the value at that index with -1 if it is positive or:
+    - if the value at the index is already negative: a double is found
+
+Alternative:
+    - use the absolute value -1 as an index
+    - multiply the value at that index with -1
+    - if the value at the index is positive that means double negation and a double is found
+    - This only works if an alement can not appear 3 or more times
+    
 """
 
 
+
+
 class Solution:
+
     def findDuplicates(self, nums: list[int]) -> list[int]:
-        """ 
-        Due to the constrainst of this problem
-        any value-1 can be used as an index pointer.
 
-        This way highest number in the array will never 
-        exceed the length of the array index.
-        
-        Example of a possible array showcasing the index -1 case:
-
-        index:  0  1  2  3
-        array: [1, 2, 4, 4]
-
-        Solution: loop over the array
-            - use the absolute value -1 as an index
-            - multiply the value at that index with -1 if it is positive or:
-            - if the value at the index is already negative: a double is found
-
-        Alternative:
-            - use the absolute value -1 as an index
-            - multiply the value at that index with -1
-            - if the value at the index is positive that means double negation and a double is found
-            - This only works if an alement can not appear 3 or more times
-            
-        """
         duplicates = []
 
         for index in range(len(nums)):
@@ -73,6 +85,7 @@ class Solution:
                 duplicates.append(value)
 
         return duplicates
+
 
 if __name__ == "__main__":
     s = Solution()

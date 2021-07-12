@@ -1,4 +1,12 @@
 """
+# 744. Find Smallest Letter Greater Than Target
+
+- https://leetcode.com/problems/find-smallest-letter-greater-than-target/ 
+- Classification: Binary Search
+
+
+## Challenge:
+
 Given a characters array letters that is sorted in non-decreasing order 
 and a character target, return the smallest character in the array that 
 is larger than target. Note that the letters wrap around.
@@ -33,69 +41,55 @@ letters[i] is a lowercase English letter.
 letters is sorted in non-decreasing order.
 letters contains at least two different characters.
 target is a lowercase English letter.
+
+
+## Solution
+
+Binary Search, see 704
+
+Use the ordinal value of the letters.
+
+Step 1. Determine if there is a wrap around.
+Step 2. Run a modified binary search:
+        The right pointer does not move with a -1 step like in normal binary search
+        If left and right have the same value the exact target wont be found
 """
 
 class Solution:
-    def nextGreatestLetter(self, letters: list[str], target: str, debug=False) -> str:
 
-        if debug: print(f'input: {letters}, target, {target}')
-
-        # Step 1. Determine the numeric value of the letter given,
-        # and the minimum target search value
+    def nextGreatestLetter(self, letters: list[str], target: str) -> str:
         ord_target = ord(target) + 1
 
-        if debug: print(f'given target value: {ord_target - 1}, min search value, {ord_target}')
-        
-        # Step 2. Determine if there is a wrap around, 
-        # this happens if the search value is bigger than 
-        # the biggest value in the given letter array
-        wrap_around = ord_target > ord(letters[-1])
+        # 1. Detect wrap around
+        if ord_target > ord(letters[-1]): return letters[0]
 
-        if debug: print(f'Higest value in letters: {ord(letters[-1])}, wrap around: {wrap_around}')
-
-        if wrap_around:
-            return letters[0]
-
-        # Step 3. No wrap around means search for value equal or bigger than target
+        # 2. Modified Binary Search
         left_pointer = 0
         right_pointer = len(letters) - 1
 
         while left_pointer != right_pointer:
-
             pivot = (left_pointer + right_pointer) // 2
             ord_pivot = ord(letters[pivot])
 
-            if debug: print(f'''Left index: {left_pointer}, 
-                                Pivot index: {pivot}, 
-                                Right Index: {right_pointer}''')
+            # Case 1: Exact Match
+            if ord_target == ord_pivot: return letters[pivot]
 
-            if debug: print(f'''Letter left: {letters[left_pointer]}, 
-                                Letter Right: {letters[right_pointer]}''')
-            
-            # break the loop early if an exact match is found
-            if ord_target == ord_pivot:
-                return letters[pivot]
-
-            # No exact match found: 
-            # Case 1: below the Target, 
-            # there has to be better, 
-            # Left moves to pivot + 1
+            # Case 2: below the Target 
+            # there has to be better at pivot +1
             if ord_pivot < ord_target:
                 left_pointer = pivot + 1
-            # Case 2: above the target, 
-            # but it might be the best we can find
-            # Right moves to pivot
-            if ord_pivot > ord_target:
-                right_pointer = pivot
             
-            # Edge Case: our best match is above the target 
-            # but the letter is multiple times in the array. 
-            # That means that left wont move
-            # so break when left and right have the same value
+            # Case 3: above the target, 
+            # but it might be the best we can find
+            if ord_pivot > ord_target:
+                right_pointer = pivot    
+            
+            # Case 4: our best match is above the target 
             if ord(letters[left_pointer]) == ord(letters[right_pointer]):
                 return letters[left_pointer]
 
         return letters[left_pointer]
+
 
 if __name__ == "__main__":
     s = Solution()

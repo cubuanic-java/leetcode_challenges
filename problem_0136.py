@@ -1,35 +1,38 @@
 """
-136. Single Number
+# 136. Single Number
 
-https://leetcode.com/problems/single-number/
+- https://leetcode.com/problems/single-number/
+- Classification: Array, Bit Manipulation
 
-Classification: Array, Bit Manipulation
+
+## Challenge
+
+    Given a non-empty array of integers nums, 
+    every element appears twice except for one. 
+    Find that single one.
+
+    You must implement a solution with a linear runtime 
+    complexity and use only constant extra space.
+
+
+## Solution
+
+1. Naive: 
+
+    Sort the array (n log n)
+    Find the missing number
+
+2. Bit Manipulation (XOR)
+
+    https://en.wikipedia.org/wiki/Bitwise_operation#XOR
+
+    - x ^ x = 0
+    - x ^ x ^ y = y
 """
 
 class Solution:
     """
-    ## Challenge:
 
-        Given a non-empty array of integers nums, 
-        every element appears twice except for one. 
-        Find that single one.
-
-        You must implement a solution with a linear runtime 
-        complexity and use only constant extra space.
-    
-    ## Solutions:
-
-        1. Naive: 
-
-            Sort the array (n log n)
-            Find the missing number
-
-        2. Bit Manipulation (XOR)
-
-            https://en.wikipedia.org/wiki/Bitwise_operation#XOR
-
-            - x ^ x = 0
-            - x ^ x ^ y = y
 
     """
 

@@ -1,4 +1,11 @@
-""" 287. Find the Duplicate Number
+""" 
+# 287. Find the Duplicate Number
+
+- https://leetcode.com/problems/find-the-duplicate-number/
+- Classification: Two Pointers, Floyd's Algorithm, Arrays
+
+
+## Challenge
 
 Given an array of integers nums containing n + 1 integers 
 where each integer is in the range [1, n] inclusive.
@@ -10,12 +17,14 @@ You must solve the problem without modifying
 the array nums and uses only constant extra space.
 
 Example 1:
+    Input: nums = [1,3,4,2,2]
+    Output: 2
 
-Input: nums = [1,3,4,2,2]
-Output: 2
-"""
 
-""" Solution, fast and slow pointers
+## Solution
+
+This problem can be solved using fast and slow pointers
+In conjunction with floyd's algorithm
 
 Treat the array as a linked list
 - the index is the node head
@@ -37,46 +46,33 @@ https://www.youtube.com/watch?v=dfIqLxAf-8s&list=PL3b9zMhRHSShk-kHaXItHwg_c8qn8l
 
 Step 1, find the meeting point using fast and slow pointers to prove a loop exist
 Step 2, reset one pointer to the start and run them at the same speed till the value's match
-
-This may happen one step before the actual 
 """
 
-
 class Solution:
-    def findDuplicate(self, nums: list[int]) -> int:
 
-        # set the pointer to the start
-        slow = 0
-        fast = 0
+    def findDuplicate(self, nums: list[int]) -> int:
+        slow = fast = 0
 
         # step 1 detect the loop
         while True:
-            # move the slow pointer one step
             slow = nums[slow]
-            # move the fast pointer two steps
             fast = nums[fast]
             fast = nums[fast]
 
             # NB 1. Finding a meeting point is not finding the value!
-
             # NB 2. Finding the duplicate value and finding the start of the loop is
-            # Not always the same application of floyds algorithm!
+            #       Not always the same application of floyds algorithm!
+            if slow == fast: break  # Found proof of circle
+                
 
-            if slow == fast: # so the pointers are at the same spot, proof of a circle!
-                # print(f'loop detected! @ {slow}, value {nums[slow]}')
-                break
-
-        # Step 2, reset one pointer and move them at the same speed till the values match
+        # Step 2
+        # Reset one pointer and move them at 
+        # the same speed till the values match
         slow = 0
         while True:
-            # move both pointers one step at a time
             slow = nums[slow]
             fast = nums[fast]
-
-            # if the values match break the loop
-            if slow == fast:
-                # print(f'Duplicate value detected! Value: {slow}')
-                break
+            if slow == fast: break
 
         return slow
 

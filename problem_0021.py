@@ -1,9 +1,23 @@
 """
-21. Merge Two Sorted Lists
+# 21. Merge Two Sorted Lists
 
-https://leetcode.com/problems/merge-two-sorted-lists/
+- https://leetcode.com/problems/merge-two-sorted-lists/
+- Classification: Two Pointer
 
-Classification: Two Pointer
+
+## Challenge
+
+    Merge two sorted linked lists and return it as a sorted list. 
+    The list should be made by splicing together the nodes of the first two lists.
+
+
+## Solution
+
+    Use a new starting head pointing to None
+
+    1. Splice while both lists still hold values into a new head pointer
+    2. Add the remaining values
+    3. Return start.next
 """
 # Definition for singly-linked list.
 class ListNode:
@@ -14,21 +28,7 @@ class ListNode:
 
 class Solution:
 
-    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        """
-        ## Challenge
-
-            Merge two sorted linked lists and return it as a sorted list. 
-            The list should be made by splicing together the nodes of the first two lists.
-
-        ## Solution
-
-            Use a new starting head pointing to None
-
-            1. Splice while both lists still hold values into a new head pointer
-            2. Add the remaining values
-            3. Return start.next
-        """         
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:      
         start = ListNode(0, None)
         head = start
         

@@ -19,6 +19,7 @@ https://seanprashad.com/leetcode-patterns/
 
 ## Fast & Slow Pointers
 
+- 0287: https://leetcode.com/problems/find-the-duplicate-number/ (Floyd's Algorithm)
 ## Two Pointers
 
 - 0021: https://leetcode.com/problems/merge-two-sorted-lists/

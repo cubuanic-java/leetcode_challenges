@@ -1,27 +1,35 @@
 """
-70. Climbing Stairs
+# 70. Climbing Stairs
 
-https://leetcode.com/problems/climbing-stairs/
+- https://leetcode.com/problems/climbing-stairs/
+- Classification: Dynamic Programming
 
-Classification: Dynamic Programming
+
+## Challenge
+
+    You are climbing a staircase. 
+    It takes n steps to reach the top.
+
+    Each time you can either climb 1 or 2 steps. 
+    In how many distinct ways can you climb to the top?
+
+
+## Solution 1
+
+    Recursion with memoization
+    Using functools lru cache
+
+
+## Solution 2
+
+    Recurion with memoization
+    Using own dict
 """
 from functools import lru_cache
 
 class Solution:
-    """
-    ## Challenge
-
-        You are climbing a staircase. 
-        It takes n steps to reach the top.
-
-        Each time you can either climb 1 or 2 steps. 
-        In how many distinct ways can you climb to the top?
-
-    ## Solution 1
-
-        Recursion with memoization
-        Using functools lru cache
-    """
+    
+    # Solution 1
     @lru_cache
     def climbStairs(self, n: int) -> int:
         # if we reach the top we return 1
@@ -33,12 +41,8 @@ class Solution:
         
         return count
 
-    """
-    ## Solution 2
 
-        Recurion with memoization
-        Using own dict
-    """
+    # Solution 2
     memo = {}
     def climbStairs(self, n: int) -> int:
         if n in self.memo:

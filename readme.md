@@ -28,11 +28,12 @@ https://seanprashad.com/leetcode-patterns/
 - 0083: https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 - 0142: https://leetcode.com/problems/linked-list-cycle-ii/
 - 0019: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+- [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
 
 ## Two Pointers
 
 - 0021: https://leetcode.com/problems/merge-two-sorted-lists/
-- 0206: https://leetcode.com/problems/reverse-linked-list/ (In place reversal of linked list)
+- [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)  (In place reversal of linked list)
 
 
 ## Dynamic Programming

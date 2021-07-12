@@ -77,6 +77,7 @@ class ListNode:
 
 class Solution:
 
+    # Working version v1
     def reverseList(self, head: ListNode) -> ListNode:
         prev = next = None
 
@@ -84,6 +85,18 @@ class Solution:
             next = head.next   # Store the next node before we alter in place
             head.next = prev   # Make the current head point backwards
             prev = head        # The previous node will swap places with head
-            head = next        # And the head can now be moved forward to the next node
+            head = next        # Move head to next node
         
         return prev  # After reversing in place previous will have move forward to the last node
+
+    # Version 2
+    def reverseList(self, head: ListNode) -> ListNode:
+        reverse = None
+   
+        while head:
+            # using tuple assignment
+            # to avoid the temp variable from last solution
+            reverse, reverse.next, head = head, reverse, head.next
+
+        return reverse  
+  

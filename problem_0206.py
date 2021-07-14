@@ -79,23 +79,22 @@ class Solution:
 
     # Working version v1
     def reverseList(self, head: ListNode) -> ListNode:
-        prev = next = None
-
-        while head:
-            next = head.next   # Store the next node before we alter in place
-            head.next = prev   # Make the current head point backwards
-            prev = head        # The previous node will swap places with head
-            head = next        # Move head to next node
+        reverse = None
         
-        return prev  # After reversing in place previous will have move forward to the last node
+        while head:
+            tmp = head.next         # Store the next node for the loop in tmp
+            head.next = reverse     # Reverse in place, head is now pointing back
+            reverse = head          # Update the reverse node
+            head = tmp              # Move head to next node
+        
+        return reverse 
+
 
     # Version 2
     def reverseList(self, head: ListNode) -> ListNode:
         reverse = None
    
         while head:
-            # using tuple assignment
-            # to avoid the temp variable from last solution
             reverse, reverse.next, head = head, reverse, head.next
 
         return reverse  

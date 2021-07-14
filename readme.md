@@ -38,7 +38,7 @@ https://seanprashad.com/leetcode-patterns/
 
 ## Dynamic Programming
 
-- 0070: https://leetcode.com/problems/climbing-stairs/
+- [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 - 0121: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 

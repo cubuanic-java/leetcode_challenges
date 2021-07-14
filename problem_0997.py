@@ -61,14 +61,17 @@ class Solution:
         result = [None] * len(nums)
 
         left_pointer = 0
-        right_pointer = write_pointer = len(nums)-1
+        right_pointer = len(nums)-1
 
         # For max effeciency, pre-square the values
         # So only used values need to be recalculated
+        # NB! This solution only works because python supports
+        # Array wrapping!
+
         left_squared = nums[left_pointer] ** 2
         right_squared = nums[right_pointer] ** 2
         
-        while left_pointer <= right_pointer:
+        for write_pointer in range(right_pointer, -1, -1):
             
             if left_squared > right_squared:
                 result[write_pointer] = left_squared
@@ -79,9 +82,43 @@ class Solution:
                 right_pointer -= 1
                 right_squared = nums[right_pointer] ** 2
 
-            write_pointer -= 1
+        return result
+
+
+    # Version 2: looping over the write pointer 
+    # To prevent any out of bounds when accessing the array
+    # Portable to different languages
+    def sortedSquares(self, nums: list[int]) -> list[int]:
+        result = [None] * len(nums)
+        left_pointer = 0
+        right_pointer = len(nums)-1
+        
+        for write_pointer in range(right_pointer, -1, -1):
+            if abs(nums[left_pointer]) > abs(nums[right_pointer]):
+                result[write_pointer] = nums[left_pointer] * nums[left_pointer]
+                left_pointer += 1
+            else:
+                result[write_pointer] = nums[right_pointer] * nums[right_pointer]
+                right_pointer -= 1
 
         return result
+
+
+    def sortedSquares(self, nums: list[int]) -> list[int]:
+        result = [None] * len(nums)
+        left_pointer = 0
+        right_pointer = len(nums)-1
+        
+        for write_pointer in range(right_pointer, -1, -1):
+            if abs(nums[left_pointer]) > abs(nums[right_pointer]):
+                result[write_pointer] = nums[left_pointer] * nums[left_pointer]
+                left_pointer += 1
+            else:
+                result[write_pointer] = nums[right_pointer] * nums[right_pointer]
+                right_pointer -= 1
+
+        return result
+
 
 
 if __name__ == "__main__":

@@ -38,6 +38,7 @@ class Solution:
     def coinChange(self, coins: list[int], amount: int) -> int:
         # Solutions[n] = optimal list of coins that add up to n
         #                None if no solution is known
+        #                Initial solution / Edge Case is an empty list
         solutions = {0: []}
 
         # Start with zero paid
@@ -48,6 +49,7 @@ class Solution:
             solution = solutions[paid]
 
             # Due to BFS order the first path is the shortest
+            # For leetcode we don't care about the path, only the length
             if paid == amount: return len(solution)
 
             for coin in coins:

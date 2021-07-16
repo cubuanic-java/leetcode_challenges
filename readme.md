@@ -9,43 +9,44 @@ https://seanprashad.com/leetcode-patterns/
 
 ## Arrays
 
-- 0217: https://leetcode.com/problems/contains-duplicate/
-- 0268: https://leetcode.com/problems/missing-number/ (Bit Manipulation, Sum first n integers)
-- 0488: https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
-- 0136: https://leetcode.com/problems/single-number/ (Bit Manipulation, XOR)
-- 0001: https://leetcode.com/problems/two-sum/
+- [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+- [268. Missing Number](https://leetcode.com/problems/missing-number/) (Bit Manipulation, Sum first n integers)
+- [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
+- [136. Single Number](https://leetcode.com/problems/single-number/) (Bit Manipulation, XOR)
+- [1. Two Sum](https://leetcode.com/problems/two-sum/)
 - [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
-- 0088: https://leetcode.com/problems/merge-sorted-array/ (Arrays, Two Pointers)
-- 0422: https://leetcode.com/problems/find-all-duplicates-in-an-array/
+- [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) (Arrays, Two Pointers)
+- [442. Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 
 
 ## Fast & Slow Pointers
 
-- 0121: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ (Floyd's Algorithm)
-- 0876: https://leetcode.com/problems/middle-of-the-linked-list/
-- 0287: https://leetcode.com/problems/find-the-duplicate-number/ (Floyd's Algorithm)
-- 0203: https://leetcode.com/problems/remove-linked-list-elements/
-- 0083: https://leetcode.com/problems/remove-duplicates-from-sorted-list/
-- 0142: https://leetcode.com/problems/linked-list-cycle-ii/
-- 0019: https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+- [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) (Floyd's Algorithm)
+- [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/) 
+- [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) (Floyd's Algorithm)
+- [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
+- [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+- [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+- [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
 
 ## Two Pointers
 
-- 0021: https://leetcode.com/problems/merge-two-sorted-lists/
+- [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)  (In place reversal of linked list)
 
 
 ## Dynamic Programming
 
 - [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
-- 0121: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+- [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [322. Coin Change](https://leetcode.com/problems/coin-change/) (Bottom Up, BFS)
+- [494. Target Sum](https://leetcode.com/problems/target-sum/) (DP, BU, BFS)
 
 
 ## Binary Search
 
-- 0704: https://leetcode.com/problems/binary-search/
-- 0744: https://leetcode.com/problems/find-smallest-letter-greater-than-target/
-- 0852: https://leetcode.com/problems/peak-index-in-a-mountain-array/
+- [704. Binary Search](https://leetcode.com/problems/binary-search/)
+- [744. Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
+- [852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)
 

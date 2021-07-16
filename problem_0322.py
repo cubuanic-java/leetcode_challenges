@@ -1,9 +1,8 @@
 """
 322. Coin Change
 
-https://leetcode.com/problems/coin-change/
-
-Patterns: Dynamic Programming, BFS
+- https://leetcode.com/problems/coin-change/
+- Patterns: Dynamic Programming, BFS
 
 ## Challenge
 

@@ -11,30 +11,68 @@ Patterns: Dynamic Programming, BFS
     coins of different denominations and an integer 
     amount representing a total amount of money.
 
-    Return the fewest number of coins that you need to make up that amount.
-    If that amount of money cannot be made up by any combination of the coins, return -1.
+    Return the fewest number of coins that you need 
+    to make up that amount.
+    If that amount of money cannot be made up by 
+    any combination of the coins, return -1.
 
-    You may assume that you have an infinite number of each kind of coin.
+    You may assume that you have an infinite number 
+    of each kind of coin.
 
 ## Solution
 
     Based on the example found in:
     'Programming Interview Problems: Dynamic Programming by Leonardo Rossi'
 
-    This is a bottom-up solution using BFS
+    ### Version 1
+        The first solution is the recursive solution.
+        But even with memoization that runs too slow.
 
-    Because of the BFS the first path will be the shortest
-    It also ignores values that are already in the queue.
-    
-    For example, given coins [1, 2, 5]
-    On the second level 5 + 2 is ignored because 2 and 5 are already in the queue
+    ### Version 2
+        The second solution is a slight modification from the book
+        This is a bottom-up solution using BFS
 
+        Because of the BFS the first path will be the shortest
+        It also ignores values that are already in the queue.
+        
+        For example, given coins [1, 2, 5]
+        On the second level 5 + 2 is ignored 
+        because 2 and 5 are already in the queue
 
+    ### Version 3
+        The Third solution is more efficient by not storing the path,
+        but the search depth (number of coins, really) instead
 """
 from collections import deque
+from functools import lru_cache
 
 
 class Solution:
+
+    """
+    The recursive solution.
+    """
+    def coinChange(self, coins: list[int], amount: int) -> int:
+
+        @lru_cache()
+        def top_down_recursion(amount):
+            # Edge cases
+            if not amount: return 0             # done
+            if amount < 0: return float('inf')  # punish negative payments
+            
+            optimal_result = float('inf')
+
+            for coin in coins:
+                partial_result = top_down_recursion(amount - coin)
+                candidate = partial_result + 1  # used one extra coin
+                optimal_result = min(optimal_result, candidate)
+
+            return optimal_result
+   
+        result = top_down_recursion(amount)
+        
+        if result == 0: return -1  # indicates payment not possible
+        return result
 
     """
     This solution stores the path as based on the book

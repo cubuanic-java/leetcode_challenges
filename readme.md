@@ -41,7 +41,7 @@ https://seanprashad.com/leetcode-patterns/
 - [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 - [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [322. Coin Change](https://leetcode.com/problems/coin-change/) (Bottom Up, BFS)
-- [494. Target Sum](https://leetcode.com/problems/target-sum/) (DP, BU, BFS)
+- [494. Target Sum](https://leetcode.com/problems/target-sum/) (DP, BU)
 
 
 ## Binary Search

@@ -20,7 +20,7 @@
 
 ## Solution
 
-    Based on the example found in:
+    Based on textbook example 3
     'Programming Interview Problems: Dynamic Programming by Leonardo Rossi'
 
     ### Version 1

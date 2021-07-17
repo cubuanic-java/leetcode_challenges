@@ -20,9 +20,9 @@
 
 ## Solution
 
-    ### Textbook Example 3
+    ### Textbook Example 4
 
-        Based on example 3 found in
+        Based on example 4 found in
         'Programming Interview Problems: Dynamic Programming by Leonardo Rossi'
         It utilizes the counter dict.
 

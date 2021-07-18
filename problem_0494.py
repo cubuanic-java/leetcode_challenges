@@ -35,24 +35,36 @@
             # logic
 
 
-    ### Leetcode Clarification
-
-        As this resource points out: this is a knapsack problem
+    ### Leetcode Forums Clarification
 
         https://leetcode.com/problems/target-sum/discuss/455024/DP-IS-EASY!-5-Steps-to-Think-Through-DP-Questions.
 
+        As this resource points out: this is a 0/1 knapsack problem
 
-    ### Adaptation from book Example
+        0/1 knapsack: take item or not
+        Unbounded knapsack: take item as often as you want
+
+        Usual Indicators of a knapsack
+        - There is capacity
+        - Forced to consider each item
+        - There are two states to keep track off: 
+            1. current sum 
+            2. index (to keep track of what items we have considered)
+        - A knapsack usually has two decisions: take or leave
+
+        - Variation: count each value negative or positive
+        - Variation: need to fill the space exactly vs optimal (Target vs Capacity)
+
+
+    ### Final Solution
 
         1. Start the counter at 1, but the index at zero.
 
-        2a. instead of while, use a for loop
-            for index in range len(nums):
-        2b. for num in nums
+        2. instead of while, use a for loop
+            for num in nums
 
         3. Use a default dict instead of a counter
             This gives a huge performance boost
-
 """
 class Solution:
     """
@@ -86,55 +98,42 @@ class Solution:
         return recursive_helper(0, 0)
 
     """
-    Bottom-up with Counter from collections
-    """
-    def findTargetSumWays(self, nums: list[int], target: int) -> int:
-        from collections import Counter
-
-        # Initialize with one possibility 'before' the list
-        partial_result_count = Counter({0: 1})
-
-        # iterate over all the numbers
-        for num in nums:
-            next_result_count = Counter()
-
-            for prefix_result, count in partial_result_count.items():
-                new_add = prefix_result + num
-                new_sub = prefix_result - num
-                next_result_count[new_add] += count
-                next_result_count[new_sub] += count
-            
-            # replace the dict at each level
-            partial_result_count = next_result_count
-        
-        return partial_result_count[target]
-
-    """
     Bottom-up with a defaultdict
 
-    Reasoning: because it is not known if a key exists
+    Instead of tabulation DP with an array like in c or java
+    A hash map avoids allocating space beforehand
+    Slight performance hit for more flexible programming
+
+    Because it is not known if a key exists
     and needs to be updated; or inserted with a fresh value
-    a regular dict will throw key errors.
+    a regular dict would throw key errors.
     """
     def findTargetSumWays(self, nums: list[int], target: int) -> int:
         from collections import defaultdict
 
+        # Recall: two usual states in a knapsack 0/1 
+        # 1: current sum
+        #
+        # After running BU DP the answer will be in this dict
+        # Key: Int, based on adding or substracting the options
+        # Val: Number of ways to reach that value
         # Initialize with one possibility 'before' the list
-        partial_result_count = dict({0: 1})
+        current_sum = dict({0: 1})  
 
-        for num in nums:
-            next_result_count = defaultdict(int)
+        # Recall: two usual states in a knapsack 0/1 
+        # 2: the index
+        # 
+        # Equivalent to: nums[idx] for idx in range(len[nums])
+        for num in nums:  
+            next_sum = defaultdict(int)
 
-            for prefix_result, count in partial_result_count.items():
-                new_add = prefix_result + num
-                new_sub = prefix_result - num
-                next_result_count[new_add] += count
-                next_result_count[new_sub] += count
-
-            # replace the dict at each level            
-            partial_result_count = next_result_count
+            for key, val in current_sum.items():
+                next_sum[key + num] += val
+                next_sum[key - num] += val
+          
+            current_sum = next_sum  # No need to keep previous results
         
-        return partial_result_count[target]
+        return current_sum[target]
 
 
 if __name__ == '__main__':

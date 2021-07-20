@@ -34,10 +34,12 @@ https://seanprashad.com/leetcode-patterns/
 
 - [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)  (In place reversal of linked list)
+- [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) (DP?)
 
 
 ## Dynamic Programming
 
+- [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 - [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 - [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [322. Coin Change](https://leetcode.com/problems/coin-change/) (Bottom Up, BFS)

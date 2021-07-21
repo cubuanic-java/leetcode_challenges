@@ -42,6 +42,7 @@ https://seanprashad.com/leetcode-patterns/
 - [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 - [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
 - [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- [152. Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)
 - [322. Coin Change](https://leetcode.com/problems/coin-change/) (Bottom Up, BFS)
 - [494. Target Sum](https://leetcode.com/problems/target-sum/) (DP, BU)
 

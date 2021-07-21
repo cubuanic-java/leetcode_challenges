@@ -14,6 +14,7 @@
 
     - Keep a running sum of all elements add together.
     - Start over when a negative number makes the resulting subarray negative
+    - See chapter 22 from Rossi
 
 """
 class Solution:
@@ -45,14 +46,15 @@ class Solution:
     Simplify the negative check and initialize the values at nums[0]
     """
     def maxSubArray(self, nums: list[int]) -> int:
-        prev_chunk = best_chunk = nums[0]
+        best_chunk = curr_chunk = nums[0]
 
         for num in nums[1:]:
-            if prev_chunk < 0 : prev_chunk = 0
-            prev_chunk = prev_chunk + num     
-            if best_chunk < prev_chunk: best_chunk = prev_chunk
+            if curr_chunk < 0 : curr_chunk = 0
+            curr_chunk = curr_chunk + num        
+            if best_chunk < curr_chunk: best_chunk = curr_chunk
 
         return best_chunk
+
 
 
 class Solution:

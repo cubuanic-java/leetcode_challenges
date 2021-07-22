@@ -34,7 +34,7 @@ https://seanprashad.com/leetcode-patterns/
 
 - [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)  (In place reversal of linked list)
-- [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) (DP?)
+- [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 
 
 ## Dynamic Programming

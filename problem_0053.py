@@ -62,6 +62,8 @@ class Solution:
     A call to max is also used a lot on leetcode.
     This works because the next positive value will become the new
     current_chunk when a chunk became negative in the previous run
+
+    But calling max is quite slow.
     """
     def maxSubArray(self, nums: list[int]) -> int:
         best_chunk = prev_chunk = nums[0]

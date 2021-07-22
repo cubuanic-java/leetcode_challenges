@@ -67,28 +67,38 @@
                 j -= 1
         return water
 
+    From another thread:
+
+        "Bucket theory: how much water a bucket can contain 
+        depends on the shortest plank. So, as to find the next 
+        potential maximum area, we disregard the shorter end 
+        by moving it to the next position."
+
+
     ## Personal speed improvements:
 
     Observation 1. Using a lot of max and min calls while also using height[i] < height[j]
         this can be combined
     Observation 2. The while statement is always doing the same amount of iterations. Use a for loop
 
+    "Runtime: 616 ms, faster than 97.72% of Python3 online submissions for Container With Most Water."
+
 """
 class Solution:
     def maxArea(self, height):
         left, right = 0, len(height) - 1
-        best = 0
+        best = curr = 0
 
         for _ in range(len(height)):
 
             if height[left] < height[right]:
                 curr = (right - left) * height[left]
-                if best < curr: best = curr
                 left += 1
             else:
                 curr = (right - left) * height[right]
-                if best < curr: best = curr
                 right -= 1
+
+            if best < curr: best = curr
 
         return best
 

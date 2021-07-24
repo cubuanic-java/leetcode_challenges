@@ -17,3 +17,8 @@ class Solution:
                 numbers_seen.add(number)
         
         return False
+
+
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        numbers_set = set(nums)
+        return len(numbers_set) != len(nums)

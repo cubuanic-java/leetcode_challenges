@@ -68,19 +68,19 @@ class Solution:
         # NB! This solution only works because python supports
         # Array wrapping!
 
-        left_squared = nums[left_pointer] ** 2
-        right_squared = nums[right_pointer] ** 2
+        left_squared = nums[left_pointer] * nums[left_pointer]
+        right_squared = nums[right_pointer] * nums[right_pointer]
         
         for write_pointer in range(right_pointer, -1, -1):
             
             if left_squared > right_squared:
                 result[write_pointer] = left_squared
                 left_pointer += 1
-                left_squared = nums[left_pointer] ** 2
+                left_squared = nums[left_pointer] * nums[left_pointer]
             else:
                 result[write_pointer] = right_squared
                 right_pointer -= 1
-                right_squared = nums[right_pointer] ** 2
+                right_squared = nums[right_pointer] * nums[right_pointer]
 
         return result
 

@@ -11,7 +11,7 @@ class Solution:
 
     def maxProduct(self, nums: list[int]) -> int:
 
-        def productPass(nums):
+        def product_pass(nums):
             best_product, curr_product = -float('inf'), 1
             for num in nums:   
                 curr_product *= num
@@ -22,8 +22,8 @@ class Solution:
 
             return best_product
 
-        forward = productPass(nums)
-        backward = productPass(nums[::-1])
+        forward = product_pass(nums)
+        backward = product_pass(nums[::-1])
 
         if forward > backward:
             return forward
